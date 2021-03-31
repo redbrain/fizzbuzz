@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>fizzbuzz</title>
+    </head>
+    <body>
+        <h1>fizzbuzz</h1>
+        <p>Fizzbuzz in job interviews is a silly question. Rather than generate fizzbuzz from 1-100 every single time you want to print it, generate it once and always print the static copy. The program now runs in O(1) time.</p>
+        <p>Also, my fizzbuzz code (written without any outside resource, as if in a job interview) is visible in the webpage source, if you want it for some reason.</p>
+        <hr>
+        <input type="text" placeholder="Generate from 1 to...">
+        <button onclick="fizzbuzz()">Go</button>
+        <br><br>
+        <div></div>
+        <script>
+        // Inspired by Ben Awad
+        const fizzbuzz = () => {
+            n = parseInt(document.querySelector('input').value);
+            if (isNaN(n)) return alert('enter a number you spoon');
+            document.querySelector('div').innerHTML = `<textarea rows="${n+1}"></textarea>`;
+            out = document.querySelector('textarea');
+            start = Date.now();
+            for (i = 1; i <= n; i++) {
+                if (!(i % 3)) out.value += "fizz";
+                if (!(i % 5)) out.value += "buzz";
+                if (i % 3 && i % 5) out.value += i;
+                out.value += "\n";
+            };
+            console.log(`Fancy meeting you here. This program finished in ${(Date.now()-start)/1000} seconds.`);
+        };
+        </script>
+    </body>
+</html>
